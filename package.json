@@ -24,6 +24,10 @@
   "devDependencies": {
     "@stencil/core": "^1.13.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsnbrji/html-autocomplete.git"
+  },
   "license": "MIT",
   "keywords": [
     "html",
