@@ -1,0 +1,109 @@
+// Material Design Input
+// --------------------------------------------------
+@import "html-autocomplete.css";
+:host {
+  position: relative;
+}
+*, :before, :after {
+  box-sizing: border-box;
+}
+
+.group {
+  position: relative;
+  //display: inline-block;
+  margin: var(--margin-top) var(--margin-right) var(--margin-bottom) var(--margin-left)
+}
+
+input {
+  background: none;
+  color: var(--color);
+  font-size: var(--font-size);
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+input:focus {
+  outline: none;
+}
+
+:host(.has-value) input ~ label {
+
+  top: -14px;
+  font-size: var(--label-font-size-focus);
+  color: var(--label-color-focus);
+
+}
+
+input:focus ~ label {
+  top: -14px;
+  font-size: var(--label-font-size-focus);
+  color: var(--label-color-focus);
+}
+
+input:focus ~ .bar:before {
+  width: var(--width);
+}
+
+label {
+  color: var(--label-color);
+  font-size: var(--label-font-size);
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 300ms ease all;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: var(--width);
+}
+
+.bar:before {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 0;
+  position: absolute;
+  background: var(--border-color-focus);
+  transition: 300ms ease all;
+  left: 0;
+}
+
+
+ul {
+  position: absolute;
+  flex-basis: 0;
+  flex-grow: 1;
+  //list-style-type: none !important;
+  width: 94%;
+  left: 0;
+  z-index: 3;
+  margin-top: -10px;
+  max-height: 300px;
+  background: white;
+  transition: all 0.3s ease;
+  transform-origin: 0 0;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0;
+  margin-left: calc(2 * var(--margin-left));
+  padding-left: 0;
+}
+li {
+  color: var(--suggestion-color);
+  z-index: 4;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 16px;
+  white-space: pre;
+  box-sizing: border-box;
+  background: white;
+  cursor: pointer;
+}
+
