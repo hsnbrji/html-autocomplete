@@ -19,13 +19,27 @@ Import the javascript file the head tag of the page.
 Add the autocomplete tag
 ```html
 <!--where suggestions is the list of your objects-->
-<html-autocomplate mode="material" suggestions="suggestions" (itemSelected)="fuction($event)">
+<html-autocomplete placeholder="Search" mode="material" suggestions="suggestions" (itemSelected)="fuction($event)">
 </html-autocomplate>
 ```
 ###NPM
 #### Installation
 ```BASH
 npm i html-autocomplete --save
+```
+####Import component
+In you main file, add the following lines
+```typescript
+import { defineCustomElements } from 'html-autocomplete/loader';
+...
+
+defineCustomElements(window);
+```
+Add the autocomplete tag
+```html
+<!--where suggestions is the list of your objects-->
+<html-autocomplete placeholder="Search" mode="material" suggestions="suggestions" (itemSelected)="fuction($event)">
+</html-autocomplate>
 ```
 ####Angular/Ionic Only
 
@@ -44,27 +58,13 @@ npm i html-autocomplete --save
   bootstrap: [AppComponent]
 })
 ```
-####Import component
-In you main file, add the following lines
-```typescript
-import { defineCustomElements } from 'html-autocomplete/loader';
-...
-
-defineCustomElements(window);
-```
-Add the autocomplete tag
-```html
-<!--where suggestions is the list of your objects-->
-<html-autocomplate mode="material" suggestions="suggestions" (itemSelected)="fuction($event)">
-</html-autocomplate>
-```
 
 ### Reactive Forms
 ```HTML
-<ion-autocomplete [suggestions]="suggestions"
+<html-autocomplete [suggestions]="suggestions" placeholder="Search"
                   (itemSelected)="customerSelected($event)"
                   formControlName="customerId">
-</ion-autocomplete>
+</html-autocomplete>
 ```
 
 ```TYPESCRIPT
