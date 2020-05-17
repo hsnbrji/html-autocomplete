@@ -60,40 +60,6 @@ Add the autocomplete tag
 })
 ```
 
-### Reactive Forms
-```HTML
-<html-autocomplete [suggestions]="suggestions" placeholder="Search"
-                  (itemSelected)="customerSelected($event)"
-                  formControlName="customerId">
-</html-autocomplete>
-```
-
-```TYPESCRIPT
-import { Component } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-
-@Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
-})
-export class HomePage {
-  customers: any[];
-  selectedCustomer: any;
-  formGroup: FormGroup;
-  constructor(private formBuilder: FormBuilder) {
-    this.formGroup = this.formBuilder.group({
-    customerId: []
-    ...
-    });
-   }
-  
-  customerSelected(customer) {
-    this.selectedCustomer = customer;
-  }
-  
-}
-```
-
 ### Input Properties
 
 | Name          | Type          | Default   | Description             |
