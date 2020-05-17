@@ -12,7 +12,8 @@ you are using.
 Import the javascript file the head tag of the page.
 ```html
 <head>
-  <script src='https://unpkg.com/html-autocomplete@[version]/dist/html-autocomplete.js'></script>
+  <script type="module" src="https://unpkg.com/html-autocomplete@[version]/dist/html-autocomplete/html-autocomplete.esm.js"></script>
+  <script nomodule="" src="https://unpkg.com/html-autocomplete@[version]/dist/html-autocomplete/html-autocomplete.js"></script>	
   ...
 </head>
 ```
