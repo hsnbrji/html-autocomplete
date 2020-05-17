@@ -7,6 +7,9 @@ This component was built using [StencilJs](https://stenciljs.com/).
 This component works in pure HTML pages regardless of the framework
 you are using.
 
+##Demo
+Click [here](https://plnkr.co/edit/3cYxYh7AlfQZHj5B) to view demo..
+
 ## Basic Usage
 ###HTML
 Import the javascript file the head tag of the page.
