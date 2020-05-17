@@ -29,16 +29,15 @@ ul {
   flex-basis: 0;
   flex-grow: 1;
   border: 1px solid #d4d4d4;
-  width: 94.5%;
-  left: 0;
+  left: inherit;
   z-index: 3;
-  margin-top: -16px;
+  margin-top: calc(var(--margin-top) * -1);
   max-height: 300px;
   background: white;
   transition: all 0.3s ease;
   transform-origin: 0 0;
-  margin-left: calc(2 * var(--margin-left));
-  margin-right: calc(-2 * var(--margin-left));
+  margin-left: var(--margin-left);
+  margin-right: calc(-1 * var(--margin-left));
   padding-left: 0;
 }
 li {

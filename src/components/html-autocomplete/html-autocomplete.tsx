@@ -231,6 +231,7 @@ export class HtmlAutocomplete implements ComponentInterface {
         value={value}
         onInput={this.onInput.bind(this)}
         onFocus={this.handleFocus.bind(this)}
+        onBlur={this.hideSuggestions.bind(this)}
         onKeyUp={this.keyUpCallbackHandler.bind(this)}
       />
 
@@ -255,7 +256,7 @@ export class HtmlAutocomplete implements ComponentInterface {
         </div>
         }
         {(this.filteredSuggestions && this.filteredSuggestions.length > 0) &&
-        <ul style={{position: 'absolute'}}>
+        <ul style={{position: 'absolute', width: `${this.nativeInput.offsetWidth}px`}}>
           {this.filteredSuggestions.map((suggestion, index) =>
             <li class={{
               'hovered': this.hoveredIndex === index
