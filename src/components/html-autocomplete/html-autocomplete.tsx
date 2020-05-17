@@ -60,7 +60,7 @@ export class HtmlAutocomplete implements ComponentInterface {
   /**
    * The mode of the input
    */
-  @State() @Prop() mode: 'material' | 'bootstrap' = 'material';
+  @Prop() mode: 'material' | 'bootstrap' = 'material';
 
   /**
    * The position determines where and how the label behaves.
