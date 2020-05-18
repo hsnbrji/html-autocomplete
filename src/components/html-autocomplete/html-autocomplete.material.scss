@@ -93,6 +93,7 @@ ul {
   //width: 100%;
   left: inherit;
   z-index: 3;
+  overflow-y: auto;
   margin-top: calc(var(--margin-top) * -1);
   max-height: 300px;
   background: white;

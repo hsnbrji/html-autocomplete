@@ -28,6 +28,7 @@ ul {
   position: absolute;
   flex-basis: 0;
   flex-grow: 1;
+  overflow-y: auto;
   border: 1px solid #d4d4d4;
   left: inherit;
   z-index: 3;
