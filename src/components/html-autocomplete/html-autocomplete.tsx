@@ -73,35 +73,12 @@ export class HtmlAutocomplete implements ComponentInterface {
   readonly type: string = 'text';
 
   @State() filteredSuggestions: any[] = [];
-  //   [
-  //   {
-  //     id: 1,
-  //     name: 'Hassan'
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Hassan'
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Hassan'
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Hassan'
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Hassan'
-  //   },
-  // ];
   @Event() itemSelected: EventEmitter<any>;
   hoveredSuggestion: any;
   @State() hoveredIndex = 0;
   arrowKeyCodes = [38, 40, 13];
 
   connectedCallback() {
-
   }
 
   disconnectedCallback() {
@@ -145,13 +122,16 @@ export class HtmlAutocomplete implements ComponentInterface {
     const max = this.filteredSuggestions.length > 50 ? 50 : this.filteredSuggestions.length;
     if (this.filteredSuggestions && this.filteredSuggestions.length > 0) {
       this.filteredSuggestions = this.filteredSuggestions.slice(0, max);
-      this.hoveredSuggestion = this.filteredSuggestions[0];
+      this.hoverSuggestion(0);
+    } else {
+      this.unHoverSuggestion()
     }
   }
 
   hideSuggestions() {
     setTimeout(() => {
       this.filteredSuggestions = [];
+      this.unHoverSuggestion();
     }, 200);
   }
 
@@ -162,31 +142,33 @@ export class HtmlAutocomplete implements ComponentInterface {
   }
 
   keyUpCallbackHandler(event) {
-    console.log(event.keyCode);
-    if (this.arrowKeyCodes.indexOf(event.keyCode) === -1) {
+    console.log(event.which);
+    if (this.arrowKeyCodes.indexOf(event.which) === -1) {
       this.filter(this.value);
     } else if (this.filteredSuggestions && this.filteredSuggestions.length > 0) {
-      if (event.keyCode === 40) {// arrow down
+      if (event.which === 40) {// arrow down
         this.nativeInput.setSelectionRange(this.value.length, this.value.length);
         if (this.hoveredIndex === this.filteredSuggestions.length - 1) {
           this.hoveredIndex = 0;
         } else {
           this.hoveredIndex++;
         }
-        this.hoveredSuggestion = this.filteredSuggestions[this.hoveredIndex];
-      } else if (event.keyCode === 38) {// arrow up
+        this.hoverSuggestion(this.hoveredIndex);
+      } else if (event.which === 38) {// arrow up
         this.nativeInput.setSelectionRange(this.value.length, this.value.length);
         if (this.hoveredIndex === 0) {
           this.hoveredIndex = this.filteredSuggestions.length - 1;
         } else {
           this.hoveredIndex--;
         }
-        this.hoveredSuggestion = this.filteredSuggestions[this.hoveredIndex];
+        this.hoverSuggestion(this.hoveredIndex);
       } else {// enter
         event.preventDefault();
         event.stopImmediatePropagation();
         this.itemClickCallbackHandler(this.hoveredSuggestion);
       }
+    } else {
+      this.unHoverSuggestion()
     }
 
   }
@@ -205,6 +187,11 @@ export class HtmlAutocomplete implements ComponentInterface {
     this.hoveredSuggestion = this.filteredSuggestions[this.hoveredIndex];
   }
 
+  unHoverSuggestion() {
+    this.hoveredIndex = -1;
+    this.hoveredSuggestion = null;
+  }
+
 
   // private hasValue(): boolean {
   //   return this.getValue().length > 0;
@@ -216,7 +203,7 @@ export class HtmlAutocomplete implements ComponentInterface {
 
   private onInput = (ev) => {
     this.value = ev.target.value
-  }
+  };
 
   render() {
     const value = this.getValue();
@@ -233,13 +220,14 @@ export class HtmlAutocomplete implements ComponentInterface {
         onFocus={this.handleFocus.bind(this)}
         onBlur={this.hideSuggestions.bind(this)}
         onKeyUp={this.keyUpCallbackHandler.bind(this)}
-      />
+      />;
 
     return (
       <Host
         class={{
           [mode]: true,
-          'has-value': value.length > 0 || false
+          'has-value': value.length > 0 || false,
+          'item-hovered': this.hoveredIndex > -1
         }}
       >
         {mode === 'material' &&
