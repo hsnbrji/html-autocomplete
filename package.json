@@ -1,6 +1,6 @@
 {
   "name": "html-autocomplete",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -19,7 +19,7 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate":"stencil generate"
   },
   "devDependencies": {
     "@stencil/core": "^1.13.0"
