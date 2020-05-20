@@ -1,15 +1,15 @@
 import {
   Component,
   ComponentInterface,
-  Prop,
-  State,
   Element,
-  Method,
-  Watch,
   Event,
   EventEmitter,
   h,
-  Host
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch
 } from '@stencil/core';
 
 
@@ -24,7 +24,9 @@ import {
 export class HtmlAutocomplete implements ComponentInterface {
 
   private nativeInput?: HTMLInputElement;
-  @State() hasFocus = false
+  private suggestionElements?: HTMLLIElement[] = [];
+  private ulElement?: HTMLUListElement;
+  @State() hasFocus = false;
   @Element() el!: HTMLElement;
 
   /**
@@ -142,7 +144,6 @@ export class HtmlAutocomplete implements ComponentInterface {
   }
 
   keyUpCallbackHandler(event) {
-    console.log(event.which);
     if (this.arrowKeyCodes.indexOf(event.which) === -1) {
       this.filter(this.value);
     } else if (this.filteredSuggestions && this.filteredSuggestions.length > 0) {
@@ -185,6 +186,24 @@ export class HtmlAutocomplete implements ComponentInterface {
   hoverSuggestion(index: number) {
     this.hoveredIndex = index;
     this.hoveredSuggestion = this.filteredSuggestions[this.hoveredIndex];
+    // Ensures Suggestion is in the list scroll view
+    if (this.ulElement) {
+      const suggestionElement = this.suggestionElements[index];
+      let cTop = this.ulElement.scrollTop;
+      let cBottom = cTop + this.ulElement.clientHeight;
+
+      //Determine element top and bottom
+      let eTop = suggestionElement.offsetTop;
+      let eBottom = eTop + suggestionElement.clientHeight;
+
+      //Check if out of view
+      if (eTop < cTop) {
+        this.ulElement.scroll({top: this.ulElement.scrollTop - (cTop - eTop)})
+      }
+      else if (eBottom > cBottom) {
+        this.ulElement.scroll({top: this.ulElement.scrollTop + (eBottom - cBottom)})
+      }
+    }
   }
 
   unHoverSuggestion() {
@@ -244,9 +263,13 @@ export class HtmlAutocomplete implements ComponentInterface {
         </div>
         }
         {(this.filteredSuggestions && this.filteredSuggestions.length > 0) &&
-        <ul style={{position: 'absolute', width: `${this.nativeInput.offsetWidth}px`}}>
+        <ul
+          ref={ul => this.ulElement = ul}
+          style={{position: 'absolute', width: `${this.nativeInput.offsetWidth}px`}}>
           {this.filteredSuggestions.map((suggestion, index) =>
-            <li class={{
+            <li
+              ref={li => this.suggestionElements[index] = li}
+              class={{
               'hovered': this.hoveredIndex === index
             }}
                 onMouseEnter={this.hoverSuggestion.bind(this, index)}
