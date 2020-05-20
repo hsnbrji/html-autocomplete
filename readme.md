@@ -73,6 +73,7 @@ Add the autocomplete tag
 | placeholder   | string        | 'Search'  |Placeholder              |
 | value   | string         | ''        |Original value  of input |
 | readonly      | boolean       | false     |Disable component        |
+| imagePathField      | string       | null     |The field of the image path. if this field is filled, images will appear at the start of each item.|
 
 
 ## Output Properties
@@ -98,6 +99,8 @@ Add the autocomplete tag
 | --margin-bottom        | 16px          |Bottom margin       |
 | --margin-left          | 16px          |Left margin       |
 | --margin-right         | 16px          |Right margin      |
+| --image-width        | 30px          |Width of the images      |
+| --image-height         | 30px          |Height of the images      |
 
 
 ## Thanks for reading
