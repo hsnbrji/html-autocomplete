@@ -65,6 +65,12 @@ export class HtmlAutocomplete implements ComponentInterface {
   @Prop() mode: 'material' | 'bootstrap' = 'material';
 
   /**
+   * The field that has the path of the image (image shows at the start of the item and can be an svg icon).
+   * If this field is filled, the image will be visible
+   */
+  @Prop() imagePathField?: string;
+
+  /**
    * The position determines where and how the label behaves.
    */
   @Prop() labelPosition?: 'fixed' | 'stacked' | 'floating' = 'floating';
@@ -265,7 +271,10 @@ export class HtmlAutocomplete implements ComponentInterface {
         {(this.filteredSuggestions && this.filteredSuggestions.length > 0) &&
         <ul
           ref={ul => this.ulElement = ul}
-          style={{position: 'absolute', width: `${this.nativeInput.offsetWidth}px`}}>
+          style={{
+            position: 'absolute',
+            width: `${this.nativeInput.offsetWidth}px`,
+          }}>
           {this.filteredSuggestions.map((suggestion, index) =>
             <li
               ref={li => this.suggestionElements[index] = li}
@@ -274,7 +283,11 @@ export class HtmlAutocomplete implements ComponentInterface {
             }}
                 onMouseEnter={this.hoverSuggestion.bind(this, index)}
                 onClick={this.itemClickCallbackHandler.bind(this, suggestion)}
-                value={suggestion[this.idField]}>{suggestion[this.labelField]}</li>
+                value={suggestion[this.idField]}>
+              {this.imagePathField && suggestion[this.imagePathField] &&
+              <img src={suggestion[this.imagePathField]} alt="image"/>}
+              {suggestion[this.labelField]}
+            </li>
           )}
         </ul>
         }

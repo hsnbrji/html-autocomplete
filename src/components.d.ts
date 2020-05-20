@@ -12,6 +12,10 @@ export namespace Components {
          */
         "idField": string;
         /**
+          * The field that has the path of the image (image shows at the start of the item and can be an svg icon). If this field is filled, the image will be visible
+         */
+        "imagePathField"?: string;
+        /**
           * The label field
          */
         "labelField": string;
@@ -62,6 +66,10 @@ declare namespace LocalJSX {
           * The id field
          */
         "idField"?: string;
+        /**
+          * The field that has the path of the image (image shows at the start of the item and can be an svg icon). If this field is filled, the image will be visible
+         */
+        "imagePathField"?: string;
         /**
           * The label field
          */

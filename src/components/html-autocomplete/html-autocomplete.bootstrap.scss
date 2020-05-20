@@ -48,7 +48,8 @@ li {
   text-decoration: none;
   background-color: #fff;
   border-bottom: 1px solid #d4d4d4;
-  display: block;
+  display: flex;
+  align-items: center; /* align vertical */
   width: 100%;
   padding: 16px;
   white-space: pre;
