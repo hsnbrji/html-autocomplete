@@ -49,7 +49,7 @@ ul {
 }
 
 li {
-  color: var(--suggestion-color);
+  color: var(--suggestions-color);
   z-index: 4;
   text-decoration: none;
   display: flex;
