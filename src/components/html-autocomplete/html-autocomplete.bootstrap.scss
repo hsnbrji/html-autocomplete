@@ -11,12 +11,19 @@
 
 .input-area{
   display: table-cell;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   vertical-align: middle;  /* needed for Safari */
   width:100%;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 input{
   padding: 8px;
+}
+
+input:focus {
+  outline-color: var(--border-color-focus);
 }
 
 ul {
