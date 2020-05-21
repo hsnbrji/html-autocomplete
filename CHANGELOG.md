@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/hsnbrji/html-autocomplete/compare/v0.2.1...v0.2.2) (2020-05-21)
+
+
+### Bug Fixes
+
+* Typo in css variable name ([5e0fa3b](https://github.com/hsnbrji/html-autocomplete/commit/5e0fa3bf0b948bbeecbfc531d053ba5d95c680a0))
+
 ### [0.2.1](https://github.com/hsnbrji/html-autocomplete/compare/v0.2.0...v0.2.1) (2020-05-21)
 
 

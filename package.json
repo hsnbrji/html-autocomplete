@@ -1,6 +1,6 @@
 {
   "name": "html-autocomplete",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
