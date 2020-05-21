@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.23](https://github.com/hsnbrji/html-autocomplete/compare/v0.1.22...v0.1.23) (2020-05-21)
+
+
+### Features
+
+* Added border color css variables to bootstrap ([367a69a](https://github.com/hsnbrji/html-autocomplete/commit/367a69a80b24fb7457f9a7779c6a7f7586fcb25e))
+* Added css variables for suggestions color and background ([830ff07](https://github.com/hsnbrji/html-autocomplete/commit/830ff073e015ed475a2ee4f0a42e079f81ad0e96))
+* Added direction property (ltr and rtl) ([1419b89](https://github.com/hsnbrji/html-autocomplete/commit/1419b89be944b8a8e353801103de4bd6508d5432))
+* Added images support at the start of the suggestion item ([bfebb50](https://github.com/hsnbrji/html-autocomplete/commit/bfebb502cb5c9ec52ad06d286a3c7f0595b5e0b5))
+
 ### 0.1.22 (2020-05-20)
 
 
