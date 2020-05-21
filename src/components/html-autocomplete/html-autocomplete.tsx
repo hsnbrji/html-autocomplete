@@ -243,6 +243,7 @@ export class HtmlAutocomplete implements ComponentInterface {
         value={value}
         onInput={this.onInput.bind(this)}
         onFocus={this.handleFocus.bind(this)}
+        onBlur={this.hideSuggestions.bind(this)}
         onKeyUp={this.keyUpCallbackHandler.bind(this)}
       />;
 
