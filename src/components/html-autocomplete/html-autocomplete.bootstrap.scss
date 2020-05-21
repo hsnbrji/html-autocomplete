@@ -7,7 +7,6 @@
   display: table;
   border-collapse: collapse;
   width:97%;
-  margin: var(--margin-top) var(--margin-right) var(--margin-bottom) var(--margin-left);
 }
 
 .input-area{
@@ -17,43 +16,17 @@
   width:100%;
 }
 input{
-  border: 0;
-  display: block;
-  width: 100%;
   padding: 8px;
-  font-size: var(--font-size);
-  color: var(--color);
 }
 
 ul {
-  position: absolute;
   flex-basis: 0;
   flex-grow: 1;
-  overflow-y: auto;
   border: 1px solid #d4d4d4;
-  left: inherit;
-  z-index: 3;
-  margin-top: calc(var(--margin-top) * -1);
-  max-height: 300px;
-  background: white;
-  transition: all 0.3s ease;
-  transform-origin: 0 0;
-  margin-left: var(--margin-left);
   margin-right: calc(-1 * var(--margin-left));
-  padding-left: 0;
 }
 li {
-  color: var(--suggestion-color);
-  z-index: 4;
-  text-decoration: none;
-  background-color: #fff;
   border-bottom: 1px solid #d4d4d4;
-  display: flex;
-  align-items: center; /* align vertical */
-  width: 100%;
-  padding: 16px;
-  white-space: pre;
-  box-sizing: border-box;
-  cursor: pointer;
+
 }
 

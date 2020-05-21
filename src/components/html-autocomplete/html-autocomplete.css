@@ -18,8 +18,51 @@
   --image-height: 30px;
 
 }
+
 .hovered {
   background: #e9e9e9;
+}
+
+ul {
+  position: absolute;
+  left: inherit;
+  z-index: 3;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  margin-left: var(--margin-left);
+  margin-top: calc(var(--margin-top) * -1);
+  max-height: 300px;
+  background: white;
+  transform-origin: 0 0;
+  padding-left: 0;
+
+}
+
+li {
+  color: var(--suggestion-color);
+  z-index: 4;
+  text-decoration: none;
+  display: flex;
+  align-items: center; /* align vertical */
+  width: 100%;
+  padding: 16px;
+  white-space: pre;
+  box-sizing: border-box;
+  background: white;
+  cursor: pointer;
+}
+
+input {
+  color: var(--color);
+  font-size: var(--font-size);
+  display: block;
+  border: none;
+  width: 100%;
+
+}
+
+.group {
+  margin: var(--margin-top) var(--margin-right) var(--margin-bottom) var(--margin-left)
 }
 
 img {
