@@ -72,8 +72,10 @@ Add the autocomplete tag
 | idField       | string        | 'id'      |Id property              |
 | placeholder   | string        | 'Search'  |Placeholder              |
 | value   | string         | ''        |Original value  of input |
+| mode   | string         | 'material'        |mode (material or bootstrap |
 | readonly      | boolean       | false     |Disable component        |
 | imagePathField      | string       | null     |The field of the image path. if this field is filled, images will appear at the start of each item.|
+| direction      | string       | 'ltr'     |direction (ltr or rtl)|
 
 
 ## Output Properties
@@ -90,8 +92,8 @@ Add the autocomplete tag
 | --color                | #000000       |Color inside input       |
 | --label-color          | #000000       |Label Color (material)    |
 | --label-color-focus    | #2196f3       |Label Color when focus (material)      |
-| --border-color         | #c6c6c6       |Color of border (material)       |
-| --border-color-focus   | #2196f3       |Color of border on focus (material)       |
+| --border-color         | #c6c6c6       |Color of border       |
+| --border-color-focus   | #2196f3       |Color of border on focus        |
 | --font-size            | 18px          |Font size       |
 | --label-font-size      | 16px          |Label font size (material)       |
 | --label-font-size-focus| 12px          |label font size focus(material)       |
@@ -99,6 +101,8 @@ Add the autocomplete tag
 | --margin-bottom        | 16px          |Bottom margin       |
 | --margin-left          | 16px          |Left margin       |
 | --margin-right         | 16px          |Right margin      |
+| --suggestions-background         | #fff          |Background of suggestions     |
+| --suggestions-color         | #000000          |Text color of suggestions      |
 | --image-width        | 30px          |Width of the images      |
 | --image-height         | 30px          |Height of the images      |
 
