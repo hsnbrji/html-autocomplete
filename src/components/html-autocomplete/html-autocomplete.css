@@ -12,8 +12,8 @@
   --margin-bottom: 16px;
   --margin-start: 16px;
   --margin-end: 16px;
-  --suggestion-color: #000000;
-  --suggestion-backgroud: #ffffff;
+  --suggestions-color: #000000;
+  --suggestions-background: #ffffff;
   --image-width: 30px;
   --image-height: 30px;
 
@@ -41,7 +41,8 @@ ul {
   margin-left: var(--margin-start);
   margin-top: calc(var(--margin-top) * -1);
   max-height: 300px;
-  background: white;
+  color: var(--suggestions-color);
+  background: var(--suggestions-background);
   transform-origin: 0 0;
   padding-left: 0;
   padding-right: 0;
@@ -57,7 +58,7 @@ li {
   padding: 16px;
   white-space: pre;
   box-sizing: border-box;
-  background: white;
+  background: var(--suggestions-background);
   cursor: pointer;
 }
 
