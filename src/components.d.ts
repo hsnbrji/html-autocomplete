@@ -8,6 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface HtmlAutocomplete {
         /**
+          * The direction (ltr or rlt).
+         */
+        "direction"?: "ltr" | "rtl";
+        /**
           * The id field
          */
         "idField": string;
@@ -19,10 +23,6 @@ export namespace Components {
           * The label field
          */
         "labelField": string;
-        /**
-          * The position determines where and how the label behaves.
-         */
-        "labelPosition"?: "fixed" | "stacked" | "floating";
         /**
           * The mode of the input
          */
@@ -63,6 +63,10 @@ declare global {
 declare namespace LocalJSX {
     interface HtmlAutocomplete {
         /**
+          * The direction (ltr or rlt).
+         */
+        "direction"?: "ltr" | "rtl";
+        /**
           * The id field
          */
         "idField"?: string;
@@ -74,10 +78,6 @@ declare namespace LocalJSX {
           * The label field
          */
         "labelField"?: string;
-        /**
-          * The position determines where and how the label behaves.
-         */
-        "labelPosition"?: "fixed" | "stacked" | "floating";
         /**
           * The mode of the input
          */

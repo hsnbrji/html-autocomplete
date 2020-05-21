@@ -71,9 +71,9 @@ export class HtmlAutocomplete implements ComponentInterface {
   @Prop() imagePathField?: string;
 
   /**
-   * The position determines where and how the label behaves.
+   * The direction (ltr or rlt).
    */
-  @Prop() labelPosition?: 'fixed' | 'stacked' | 'floating' = 'floating';
+  @Prop() direction?: 'ltr' | 'rtl' = 'ltr';
 
   /**
    * The type of the input
@@ -243,7 +243,6 @@ export class HtmlAutocomplete implements ComponentInterface {
         value={value}
         onInput={this.onInput.bind(this)}
         onFocus={this.handleFocus.bind(this)}
-        onBlur={this.hideSuggestions.bind(this)}
         onKeyUp={this.keyUpCallbackHandler.bind(this)}
       />;
 
@@ -252,7 +251,8 @@ export class HtmlAutocomplete implements ComponentInterface {
         class={{
           [mode]: true,
           'has-value': value.length > 0 || false,
-          'item-hovered': this.hoveredIndex > -1
+          'item-hovered': this.hoveredIndex > -1,
+          'rtl': this.direction === 'rtl'
         }}
       >
         {mode === 'material' &&

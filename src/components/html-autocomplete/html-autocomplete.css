@@ -10,13 +10,20 @@
   --label-font-size-focus: 12px;
   --margin-top: 16px;
   --margin-bottom: 16px;
-  --margin-left: 16px;
-  --margin-right: 16px;
+  --margin-start: 16px;
+  --margin-end: 16px;
   --suggestion-color: #000000;
   --suggestion-backgroud: #ffffff;
   --image-width: 30px;
   --image-height: 30px;
 
+}
+:host {
+  direction: ltr
+}
+
+:host(.rtl) {
+  direction: rtl;
 }
 
 .hovered {
@@ -24,18 +31,20 @@
 }
 
 ul {
+  flex-basis: 0;
+  flex-grow: 1;
   position: absolute;
   left: inherit;
   z-index: 3;
   overflow-y: auto;
   transition: all 0.3s ease;
-  margin-left: var(--margin-left);
+  margin-left: var(--margin-start);
   margin-top: calc(var(--margin-top) * -1);
   max-height: 300px;
   background: white;
   transform-origin: 0 0;
   padding-left: 0;
-
+  padding-right: 0;
 }
 
 li {
@@ -62,7 +71,12 @@ input {
 }
 
 .group {
-  margin: var(--margin-top) var(--margin-right) var(--margin-bottom) var(--margin-left)
+  margin: var(--margin-top) var(--margin-start) var(--margin-bottom) var(--margin-end);
+}
+
+:host(.rtl) .group {
+  margin: var(--margin-top) var(--margin-end) var(--margin-bottom) var(--margin-start);
+  text-align: right;
 }
 
 img {
@@ -70,4 +84,9 @@ img {
   height: var(--image-height);
   display: inline-block;
   margin-right: 10px;
+}
+
+:host(.rtl) img {
+  margin-right: 0;
+  margin-left: 10px;
 }

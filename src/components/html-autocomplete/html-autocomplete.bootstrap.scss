@@ -20,8 +20,6 @@ input{
 }
 
 ul {
-  flex-basis: 0;
-  flex-grow: 1;
   border: 1px solid #d4d4d4;
   margin-right: calc(-1 * var(--margin-left));
 }
